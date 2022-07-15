@@ -79,11 +79,20 @@ $ rm -r $HOME/zmac
 
 :warning:  Restart the terminal or open a new tab
 
-## Step X
 
 Use some new commands to clean up/update Homebrew & packages
 
 ```
 $ brewup
 $ topgrade
+```
+
+## Step X
+
+To remove all Dock icons, such as after a fresh OS install
+<br>
+
+```
+$ defaults write com.apple.dock persistent-apps -array
+$ killAll Dock
 ```
