@@ -77,7 +77,7 @@ Clean up (optional)
 $ rm -r $HOME/zmac
 ```
 
-:warning: Restart the terminal or open a new tab
+:warning:  Restart the terminal or open a new tab
 
 ## Step X
 
