@@ -67,8 +67,6 @@ $ exit
 $ chsh -s /usr/local/bin/zsh
 ```
 
-# Restart the terminal or open a new tab
-
 
 ## Step 5
 
@@ -79,6 +77,7 @@ Clean up (optional)
 $ rm -r $HOME/zmac
 ```
 
+:warning: Restart the terminal or open a new tab
 
 ## Step X
 
