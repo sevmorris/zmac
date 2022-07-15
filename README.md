@@ -76,7 +76,7 @@ Clean up (optional)
 <br>
 
 ```
-$ rm -r $HOME/macstrap
+$ rm -r $HOME/zmac
 ```
 
 
