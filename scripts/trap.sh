@@ -2,9 +2,6 @@
 
 set -e
 
-# Some of this code was copy/pasted from Mike McQuaid's Strap repository
-# https://github.com/MikeMcQuaid/strap
-
 #. . . . . . . . . . . . . . . . _,,,--~~~~~~~~--,_
 #. . . . . . . . . . . . . . ,-' : : : :::: :::: :: : : : : :º '-, ITS A TRAP!
 #. . . . . . . . . . . . .,-' :: : : :::: :::: :::: :::: : : :o : '-,
@@ -37,16 +34,6 @@ reset=$(tput sgr0)
 # Just a bold yellow arrow
 arrow() {
   echo "${yellow}${bold}>>> ${reset}$*"
-}
-
-# We want to always prompt for sudo password at least once rather than doing
-# root stuff unexpectedly
-sudo --reset-timestamp
-
-abort() {
-  TRAP_STEP=""
-  echo "!!! $*" >&2
-  exit 1
 }
 
 # Install Homebrew Bundle, Cask and Services tap.
@@ -159,5 +146,3 @@ arrow "Checking for software updates:"
   xcode_license
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-echo "OK"

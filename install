@@ -16,76 +16,16 @@ arrow() {
   echo "${yellow}${bold}>>> ${reset}$*"
 }
 
-STDIN_FILE_DESCRIPTOR="0"
-[ -t "$STDIN_FILE_DESCRIPTOR" ] && TRAP_INTERACTIVE="1"
-
-# Install the Xcode Command Line Tools
-if ! [ -f "/Library/Developer/CommandLineTools/usr/bin/git" ]; then
-  arrow "Installing the Xcode Command Line Tools:"
-  CLT_PLACEHOLDER="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress"
-  sudo touch "$CLT_PLACEHOLDER"
-
-  CLT_PACKAGE=$(softwareupdate -l \
-    | grep -B 1 "Command Line Tools" \
-    | awk -F"*" '/^ *\*/ {print $2}' \
-    | sed -e 's/^ *Label: //' -e 's/^ *//' \
-    | sort -V \
-    | tail -n1)
-  sudo softwareupdate -i "$CLT_PACKAGE"
-  sudo rm -f "$CLT_PLACEHOLDER"
-  if ! [ -f "/Library/Developer/CommandLineTools/usr/bin/git" ]; then
-    if [ -n "$TRAP_INTERACTIVE" ]; then
-      echo
-      arrow "Requesting user install of Xcode Command Line Tools:"
-      xcode-select --install
-    else
-      echo
-      abort "Run 'xcode-select --install' to install the Xcode Command Line Tools."
-    fi
-  fi
-  echo "OK"
-fi
-
-# Check if the Xcode license is agreed to and agree if not
-xcode_license() {
-  if /usr/bin/xcrun clang 2>&1 | grep $Q license; then
-    if [ -n "$TRAP_INTERACTIVE" ]; then
-      arrow "Asking for Xcode license confirmation:"
-      sudo xcodebuild -license
-      echo "OK"
-    else
-      abort "Run 'sudo xcodebuild -license' to agree to the Xcode license."
-    fi
-  fi
-}
-xcode_license
-
-# Download Homebrew
-export GIT_DIR="$HOMEBREW_REPOSITORY/.git" GIT_WORK_TREE="$HOMEBREW_REPOSITORY"
-git init $Q
-git config remote.origin.url "https://github.com/Homebrew/brew"
-git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
-git fetch $Q --tags --force
-git reset $Q --hard origin/master
-unset GIT_DIR GIT_WORK_TREE
-echo "OK"
-
-# Update Homebrew
-export PATH="$HOMEBREW_PREFIX/bin:$PATH"
-arrow "Updating Homebrew:"
-brew update --quiet
-echo "OK"
-
 # It's not a trap
 . $SCRIPTS/trap.sh
 
 # Create a dotfiles dir and copy files to it
-echo "--> Creating a directory for dotfiles"
+arrow "Creating a directory for dotfiles"
 mkdir -p $HOME/.dotfiles && cp -af $zshrc $zpro $hush $_
 sleep 1
 
 # Create fresh symlinks to dotfiles in ~/
-echo "--> Creating symlinks to dotfiles"
+arrow "Creating symlinks to dotfiles"
 for file in $HOME/.dotfiles/.{zshrc,zprofile,hushlogin}; do
     [ -r "$file" ] && [ -f "$file" ] && ln -sf "$file" $HOME;
 done;

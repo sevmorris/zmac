@@ -9,6 +9,23 @@ Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+## Step 2
+
+Install oh-my-zsh
+<br>
+
+```
+$ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+Install plugins
+<br>
+
+```
+$ cd ~/.oh-my-zsh/plugins
+$ git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
 
 ## Step 2
 
@@ -51,25 +68,12 @@ Restart the terminal or open a new tab
 
 ## Step 4
 
-Install oh-my-zsh plugins
-<br>
-
-```
-$ cd ~/.oh-my-zsh/plugins
-$ git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-```
-
-
-## Step 5
-
 Clean up (optional)
 <br>
 
 ```
 $ rm -r $HOME/macstrap
 ```
-
 
 ## Step X
 
