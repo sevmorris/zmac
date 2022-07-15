@@ -8,6 +8,19 @@ osdefaults() {
   echo "Changing some macOS default settings."
   echo
 
+  # Set some basic security settings
+  arrow "Configuring security settings:"
+  sudo defaults write com.apple.Safari \
+    com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled \
+    -bool false
+  sudo defaults write com.apple.Safari \
+    com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabledForLocalFiles \
+    -bool false
+  sudo defaults write com.apple.screensaver askForPassword -int 1
+  sudo defaults write com.apple.screensaver askForPasswordDelay -int 0
+  sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
+  sudo launchctl load /System/Library/LaunchDaemons/com.apple.alf.agent.plist 2>/dev/null
+  
 # //////////////////////////////////////////////////////////////////////////////
 # Activity Monitor
 # //////////////////////////////////////////////////////////////////////////////
