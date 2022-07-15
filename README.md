@@ -12,6 +12,26 @@ Install Homebrew
 
 ## Step 2
 
+Install oh-my-zsh
+<br>
+
+```
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+
+Install these oh-my-zsh plugins
+<br>
+
+```
+$ cd ~/.oh-my-zsh/plugins
+$ git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+
+## Step 3
+
 Clone this repo and run install script
 <br>
 
@@ -24,7 +44,7 @@ $ cd ~
 ```
 
 
-## Step 3
+## Step 4
 
 Switch to Homebrew's Zsh
 <br>
@@ -47,27 +67,7 @@ $ exit
 $ chsh -s /usr/local/bin/zsh
 ```
 
-Restart the terminal or open a new tab
-
-
-## Step 4
-
-Install oh-my-zsh
-<br>
-
-```
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-
-Install these oh-my-zsh plugins
-<br>
-
-```
-$ cd ~/.oh-my-zsh/plugins
-$ git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-```
+# Restart the terminal or open a new tab
 
 
 ## Step 5
