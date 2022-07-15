@@ -232,6 +232,7 @@ fi
 arrow "Checking for software updates:"
   sudo softwareupdate --install --all
   xcode_license
-fi
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "OK"
