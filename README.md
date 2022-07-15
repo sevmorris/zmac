@@ -20,7 +20,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 ```
 
 
-Install these oh-my-zsh plugins
+Install oh-my-zsh plugins
 <br>
 
 ```
@@ -32,7 +32,7 @@ $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTO
 
 ## Step 3
 
-Clone this repo and run install script
+Clone zmac and run install script
 <br>
 
 ```
