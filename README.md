@@ -17,7 +17,7 @@ Clone this repo and run install script
 
 ```
 $ cd ~
-$ git clone https://github.com/sevmorris/macstrap.git && cd macstrap && chmod +x install
+$ git clone https://github.com/sevmorris/zmac.git && cd zmac && chmod +x install
 $ bash ./install
 $ cd ~
 ```
