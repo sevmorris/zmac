@@ -1,0 +1,32 @@
+#!/usr/bin/env zsh
+
+set -e
+
+ZMAC=$HOME/zmac
+DOTS=$ZMAC/dotfiles
+SCRIPTS=$ZMAC/scripts
+BIN=$HOME/.local/bin
+# dotfiles
+zshrc=$DOTS/.zshrc
+zpro=$DOTS/.zprofile
+hush=$DOTS/.hushlogin
+
+# It's not a trap
+. $SCRIPTS/trap.sh
+
+# Create a dotfiles dir and copy files to it
+echo "--> Creating a directory for dotfiles"
+mkdir -p $HOME/.dotfiles && cp -af $zshrc $zpro $hush $_
+sleep 1
+
+# Create fresh symlinks to dotfiles in ~/
+echo "--> Creating symlinks to dotfiles"
+for file in $HOME/.dotfiles/.{zshrc,zprofile,hushlogin}; do
+    [ -r "$file" ] && [ -f "$file" ] && ln -sf "$file" $HOME;
+done;
+unset file;
+sleep 1
+
+. $SCRIPTS/macdefaults.sh
+
+fortune | cowsay | lolcat
