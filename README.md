@@ -49,6 +49,7 @@ $ chsh -s /usr/local/bin/zsh
 
 Restart the terminal or open a new tab
 
+
 ## Step 4
 
 Install oh-my-zsh
@@ -59,9 +60,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 ```
 
 
-## Step 5
-
-Install oh-my-zsh plugins
+Install these oh-my-zsh plugins
 <br>
 
 ```
