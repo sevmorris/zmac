@@ -113,6 +113,7 @@ alias path='echo -e ${PATH//:/\\n}'
 alias s="pmset displaysleepnow"
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 
+
 # tre :: `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
