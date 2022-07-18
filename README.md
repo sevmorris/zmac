@@ -24,9 +24,9 @@ Install oh-my-zsh plugins
 <br>
 
 ```
-$ cd ~/.oh-my-zsh/plugins
-$ git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+cd ~/.oh-my-zsh/plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
 
@@ -36,11 +36,11 @@ Clone zmac and run install script
 <br>
 
 ```
-$ cd ~
-$ eval $(/opt/homebrew/bin/brew shellenv)
-$ git clone https://github.com/sevmorris/zmac.git && cd zmac && chmod +x install
-$ bash ./install
-$ cd ~
+cd ~
+eval $(/opt/homebrew/bin/brew shellenv)
+git clone https://github.com/sevmorris/zmac.git && cd zmac && chmod +x install
+bash ./install
+cd ~
 ```
 
 
@@ -51,20 +51,20 @@ Switch to Homebrew's Zsh
 
 M1
 ```
-$ sudo -i
-$ echo /opt/homebrew/bin/zsh >> /etc/shells
-$ exit
-$ chsh -s /opt/homebrew/bin/zsh
+sudo -i
+echo /opt/homebrew/bin/zsh >> /etc/shells
+exit
+chsh -s /opt/homebrew/bin/zsh
 ```
 
 <br>
 
 Intel
 ```
-$ sudo -i
-$ echo /usr/local/bin/zsh >> /etc/shells
-$ exit
-$ chsh -s /usr/local/bin/zsh
+sudo -i
+echo /usr/local/bin/zsh >> /etc/shells
+exit
+chsh -s /usr/local/bin/zsh
 ```
 
 
@@ -74,7 +74,7 @@ Clean up (optional)
 <br>
 
 ```
-$ rm -r $HOME/zmac
+rm -r $HOME/zmac
 ```
 
 :warning:  Restart the terminal or open a new tab
@@ -83,8 +83,8 @@ $ rm -r $HOME/zmac
 Use some new commands to clean up/update Homebrew & packages
 
 ```
-$ brewup
-$ topgrade
+brewup
+topgrade
 ```
 
 ## Step X
@@ -93,6 +93,6 @@ To remove all Dock icons, such as after a fresh OS install
 <br>
 
 ```
-$ defaults write com.apple.dock persistent-apps -array
-$ killAll Dock
+defaults write com.apple.dock persistent-apps -array
+killAll Dock
 ```
