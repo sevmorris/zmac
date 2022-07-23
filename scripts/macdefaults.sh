@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 set +e
 
@@ -20,7 +20,7 @@ osdefaults() {
   sudo defaults write com.apple.screensaver askForPasswordDelay -int 0
   sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
   sudo launchctl load /System/Library/LaunchDaemons/com.apple.alf.agent.plist 2>/dev/null
-  
+
 # //////////////////////////////////////////////////////////////////////////////
 # Activity Monitor
 # //////////////////////////////////////////////////////////////////////////////
