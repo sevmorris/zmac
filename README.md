@@ -39,7 +39,7 @@ Clone zmac and run install script
 cd ~
 eval $(/opt/homebrew/bin/brew shellenv)
 git clone https://github.com/sevmorris/zmac.git && cd zmac && chmod +x install
-bash ./install
+./install
 cd ~
 ```
 
