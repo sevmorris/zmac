@@ -162,5 +162,7 @@ fs() {
 # Add Homebrew's sbin to $PATH
 export PATH="/opt/homebrew/sbin:$PATH"
 
+eval "$(rbenv init - zsh)"
+
 # Remove duplicate $PATH entries (https://unix.stackexchange.com/a/149054)
 PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"
