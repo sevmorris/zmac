@@ -80,7 +80,7 @@ rm -r $HOME/zmac
 :warning:  Restart the terminal or open a new tab
 
 
-Use some new commands to clean up/update Homebrew & packages
+Try out some new commands to clean up/update Homebrew & packages
 
 ```
 brewup
