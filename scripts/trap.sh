@@ -124,7 +124,6 @@ brew "bramstein/webfonttools/sfnt2woff"
 brew "bramstein/webfonttools/sfnt2woff-zopfli"
 cask "dozer"
 cask "iterm2"
-cask "keyboardcleantool"
 cask "raycast"
 RUBY
 echo "OK"
