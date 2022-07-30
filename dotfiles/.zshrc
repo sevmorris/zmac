@@ -163,9 +163,6 @@ fs() {
   fi;
 }
 
-# Add Homebrew's sbin to $PATH
-export PATH="/opt/homebrew/sbin:$PATH"
-
 # Loads nvm installed via Homebrew
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm

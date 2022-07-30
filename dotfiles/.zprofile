@@ -27,6 +27,7 @@ case `arch` in
     ;;
 esac
 export PATH="$BREW_PREFIX/bin:$PATH"
+export PATH="$BREW_PREFIX/sbin:$PATH"
 
 # Using GNU command line tools in macOS instead of FreeBSD tools
 # https://gist.github.com/skyzyx/3438280b18e4f7c490db8a2a2ca0b9da
