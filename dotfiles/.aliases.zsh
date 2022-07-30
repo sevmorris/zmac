@@ -27,3 +27,7 @@ alias gitgo="gh repo create"
 alias brewup="brew -v update && brew -v upgrade && brew -v cleanup --prune=0 && brew doctor"
 alias brun="brew uninstall -v "
 alias brewfile="cd ~/.homebrew-brewfile && pushit && ~"
+# alias to avoid making mistakes:
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
