@@ -100,6 +100,17 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias l='exa -1a'                 # Lists in one column, hidden files.
+alias ll='exa -l'                 # Lists human readable sizes.
+alias lr='ll -R'                  # Lists human readable sizes, recursively.
+alias la='ll -a'                  # Lists human readable sizes, hidden files.
+alias lm='la | "$PAGER"'          # Lists human readable sizes, hidden files through pager.
+alias lx='ll --sort=Extension'    # Lists sorted by extension (GNU only).
+alias lk='ll --sort=size -r'      # Lists sorted by size, largest last.
+alias lt='ll --sort=modified -r'  # Lists sorted by date, most recent last.
+alias lc='lt -m'                  # Lists sorted by date, most recent last, shows change time.
+alias lu='lt -u'                  # Lists sorted by date, most recent last, shows access time.
+alias sl='ls'                     # I often screw this up.
 alias c="clear && source ~/.zshrc"
 alias cat="rich "
 alias find="fd "
