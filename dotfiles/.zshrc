@@ -8,7 +8,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="bira"
+#ZSH_THEME="bira"
+ZSH_THEME="absolute"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -80,6 +81,7 @@ plugins=(
   rbenv
   ruby
   zsh-autosuggestions
+  zsh-direnv
   zsh-syntax-highlighting
 )
 
@@ -112,36 +114,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-alias l='exa -1a'                 # Lists in one column, hidden files.
-alias ll='exa -l'                 # Lists human readable sizes.
-alias lr='ll -R'                  # Lists human readable sizes, recursively.
-alias la='ll -a'                  # Lists human readable sizes, hidden files.
-alias lm='la | "$PAGER"'          # Lists human readable sizes, hidden files through pager.
-alias lx='ll --sort=Extension'    # Lists sorted by extension (GNU only).
-alias lk='ll --sort=size -r'      # Lists sorted by size, largest last.
-alias lt='ll --sort=modified -r'  # Lists sorted by date, most recent last.
-alias lc='lt -m'                  # Lists sorted by date, most recent last, shows change time.
-alias lu='lt -u'                  # Lists sorted by date, most recent last, shows access time.
-alias sl='ls'                     # I often screw this up.
-alias c="clear && source ~/.zshrc"
-alias cat="rich "
-alias find="fd "
-alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
-alias mount="mount | column -t"
-alias netcheck="networkQuality -v"
-alias path='echo -e ${PATH//:/\\n}'
-alias s="pmset displaysleepnow"
-alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
-alias sed="gsed"
-#Create a Github remote repo from cd
-alias gitready="git init -b main"
-alias gitset='git add . && git commit -m "initial commit"'
-alias gitgo="gh repo create"
-# Homebrew aliases
-alias brewup="brew -v update && brew -v upgrade && brew -v cleanup --prune=0 && brew doctor"
-alias brun="brew uninstall -v "
-alias brewfile="cd ~/.homebrew-brewfile && pushit && ~"
 
 # Push current directory to Github
 pushit() {
@@ -186,7 +158,13 @@ fs() {
 # Add Homebrew's sbin to $PATH
 export PATH="/opt/homebrew/sbin:$PATH"
 
+# Loads nvm installed via Homebrew
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 eval "$(rbenv init - zsh)"
+eval "$(direnv hook zsh)"
 
 # Remove duplicate $PATH entries (https://unix.stackexchange.com/a/149054)
 PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"

@@ -1,0 +1,29 @@
+alias l='exa -1a'                 # Lists in one column, hidden files.
+alias ll='exa -l'                 # Lists human readable sizes.
+alias lr='ll -R'                  # Lists human readable sizes, recursively.
+alias la='ll -a'                  # Lists human readable sizes, hidden files.
+alias lm='la | "$PAGER"'          # Lists human readable sizes, hidden files through pager.
+alias lx='ll --sort=Extension'    # Lists sorted by extension (GNU only).
+alias lk='ll --sort=size -r'      # Lists sorted by size, largest last.
+alias lt='ll --sort=modified -r'  # Lists sorted by date, most recent last.
+alias lc='lt -m'                  # Lists sorted by date, most recent last, shows change time.
+alias lu='lt -u'                  # Lists sorted by date, most recent last, shows access time.
+alias sl='ls'                     # I often screw this up.
+alias c="clear && source ~/.zshrc"
+alias cat="rich "
+alias find="fd "
+alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+alias mount="mount | column -t"
+alias netcheck="networkQuality -v"
+alias path='echo -e ${PATH//:/\\n}'
+alias s="pmset displaysleepnow"
+alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
+alias sed="gsed"
+#Create a Github remote repo from cd
+alias gitready="git init -b main"
+alias gitset='git add . && git commit -m "initial commit"'
+alias gitgo="gh repo create"
+# Homebrew aliases
+alias brewup="brew -v update && brew -v upgrade && brew -v cleanup --prune=0 && brew doctor"
+alias brun="brew uninstall -v "
+alias brewfile="cd ~/.homebrew-brewfile && pushit && ~"
