@@ -31,3 +31,43 @@ alias brewfile="cd ~/.homebrew-brewfile && pushit && ~"
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+
+# Push current directory to Github
+pushit() {
+  DATE=$(date '+%y%m%d-%H%M')
+  git pull 2>&1
+  git add . 2>&1
+  git commit -m "${DATE}" 2>&1
+  git push 2>&1
+}
+
+# Open the current directory in Atom
+at() {
+  if [ $# -eq 0 ]; then
+      atom .;
+  else
+      atom "$@";
+  fi;
+}
+
+# tre :: `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
+# the `.git` directory, listing directories first. The output gets piped into
+# `less` with options to preserve color and line numbers, unless the output is
+# small enough for one screen.
+tre() {
+  tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+}
+
+# Determine size of a file or total size of a directory
+fs() {
+  if du -b /dev/null > /dev/null 2>&1; then
+      local arg=-sbh;
+  else
+      local arg=-sh;
+  fi
+  if [[ -n "$@" ]]; then
+      du $arg -- "$@";
+  else
+      du $arg .[^.]* *;
+  fi;
+}
