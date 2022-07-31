@@ -83,10 +83,8 @@ plugins=(
   colored-man-pages
   colorize
   dotenv
-  macos
   git
   gh
-  rake
   rbenv
   ruby
   sudo
