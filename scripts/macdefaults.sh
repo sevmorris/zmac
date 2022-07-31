@@ -9,7 +9,7 @@ osdefaults() {
   echo
 
   # Set some basic security settings
-  arrow "Configuring security settings:"
+  echo "Configuring security settings:"
   sudo defaults write com.apple.Safari \
     com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled \
     -bool false

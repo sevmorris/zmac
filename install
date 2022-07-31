@@ -27,38 +27,40 @@
 set -e
 
 ZMAC=$HOME/zmac
-DOTS=$ZMAC/dotfiles
-SCRIPTS=$ZMAC/scripts
+ZDOTS=$ZMAC/dotfiles
+MAC_DEFS=$ZMAC/scripts/macdefaults.sh
 BIN=$HOME/.local/bin
+OMZ_CUSTOM=$HOME/.oh-my-zsh/custom
 # dotfiles
-zpro=$DOTS/.zprofile
-zshrc=$DOTS/.zshrc
-aliases=$DOTS/.aliases.zsh
-hush=$DOTS/.hushlogin
-
-# Just a bold yellow arrow
-arrow() {
-  echo "${yellow}${bold}>>> ${reset}$*"
-}
+zpro=$ZDOTS/.zprofile
+zshrc=$ZDOTS/.zshrc
+aliases=$ZDOTS/.aliases.zsh
+hush=$ZDOTS/.hushlogin
 
 # It's not a trap
 . $SCRIPTS/trap.sh
 
 # Create a dotfiles dir and copy files to it
-arrow "Creating a directory for dotfiles"
-mkdir -p $HOME/.dotfiles && cp -af $zpro $zshrc $aliases $_
+echo "Creating a directory for dotfiles"
+mkdir -p $HOME/.dotfiles && cp -afi $zpro $zshrc $aliases $_
 sleep 1
 
+DOTS=$HOME/.dotfiles
+
 # Create fresh symlinks to dotfiles in ~/
-arrow "Creating symlinks to dotfiles"
-for file in $HOME/.dotfiles/.{zprofile,zshrc,aliases}; do
+echo "Creating symlinks to dotfiles"
+for file in $DOTS/.{zprofile,zshrc}; do
     [ -r "$file" ] && [ -f "$file" ] && ln -sf "$file" $HOME;
 done;
 unset file;
 sleep 1
 
-cp -f  $hush $HOME
+# Create symlink to aliases in oh-my-zsh custom dir
+ln -s $DOTS/.aliases.zsh $OMZ_CUSTOM
 
-. $SCRIPTS/macdefaults.sh
+# Copy hushfile to ~/
+cp -fi  $hush $HOME
+
+. $MAC_DEFS
 
 fortune | cowsay | lolcat
