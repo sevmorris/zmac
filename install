@@ -31,8 +31,9 @@ DOTS=$ZMAC/dotfiles
 SCRIPTS=$ZMAC/scripts
 BIN=$HOME/.local/bin
 # dotfiles
-zshrc=$DOTS/.zshrc
 zpro=$DOTS/.zprofile
+zshrc=$DOTS/.zshrc
+aliases=$DOTS/.aliases.zsh
 hush=$DOTS/.hushlogin
 
 # Just a bold yellow arrow
@@ -45,16 +46,18 @@ arrow() {
 
 # Create a dotfiles dir and copy files to it
 arrow "Creating a directory for dotfiles"
-mkdir -p $HOME/.dotfiles && cp -af $zshrc $zpro $hush $_
+mkdir -p $HOME/.dotfiles && cp -af $zpro $zshrc $aliases $_
 sleep 1
 
 # Create fresh symlinks to dotfiles in ~/
 arrow "Creating symlinks to dotfiles"
-for file in $HOME/.dotfiles/.{zshrc,zprofile,hushlogin}; do
+for file in $HOME/.dotfiles/.{zprofile,zshrc,aliases}; do
     [ -r "$file" ] && [ -f "$file" ] && ln -sf "$file" $HOME;
 done;
 unset file;
 sleep 1
+
+cp -f  $hush $HOME
 
 . $SCRIPTS/macdefaults.sh
 
